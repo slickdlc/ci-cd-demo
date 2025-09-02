@@ -30,14 +30,19 @@ tasks.named('test') {
 }
 
 test {
-	finalizedBy jacocoTestReport // report is always generated after tests run
+	finalizedBy jacocoTestReport
+	jacoco {
+		exclude("com/slickdlc/cicd/demo/DemoApplication")
+	}
 }
 
 jacocoTestReport {
+	reports {
+		xml.required = true
+	}
 	dependsOn test // tests are required to run before generating the report
 }
 
 jacoco {
 	toolVersion = "0.8.13"
-	reportsDirectory = layout.buildDirectory.dir('jacocoCoverageReports')
 }
