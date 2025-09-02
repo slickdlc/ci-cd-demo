@@ -27,14 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Package
-          path: build/libs
-
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Simulate Deploy
-        run: |
-          echo "Deploying artifact to staging..."
-          ls target/*.jar
+          path: build/jacocoCoverageReports/test/html

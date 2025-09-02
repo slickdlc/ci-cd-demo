@@ -1,0 +1,14 @@
+name: CI/CD Pipeline
+
+on:
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Deploy
+        run: |
+          echo "Deploying artifact to staging..."
