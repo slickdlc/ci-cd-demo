@@ -1,8 +1,9 @@
 package com.slickdlc.cicd.demo.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.oracle.svm.core.annotate.Inject;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,4 +25,5 @@ class DemoControllerTest {
         () -> assertEquals("Hello, World!", response.getBody())
     );
   }
+
 }
