@@ -1,0 +1,37 @@
+name: Continuous Delivery Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Creating docker image
+        run: |
+          echo "Creating Docker Image..."
+          echo "Done."
+
+      - name: Push Image to Docker Hub
+        run: |
+          echo "Pushing image to Docker Hub..."
+          echo "Done."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy artifact based on branch
+        run: |
+          echo "Branch detected: ${{ github.ref_name }}"
+          
+          if [ "${{ github.ref_name }}" == "develop" ]; then
+            echo "Deploying to TEST environment..."
+          
+          elif [ "${{ github.ref_name }}" == "main" ]; then
+            echo "Deploying to PRODUCTION environment..."
+          fi
