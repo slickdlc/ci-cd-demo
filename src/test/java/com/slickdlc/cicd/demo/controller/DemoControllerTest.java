@@ -18,7 +18,6 @@ class DemoControllerTest {
   private DemoController demoController;
 
   @Test
-  @Disabled
   void shouldReturnHelloWorld() {
     var response = demoController.hello();
     assertAll(
