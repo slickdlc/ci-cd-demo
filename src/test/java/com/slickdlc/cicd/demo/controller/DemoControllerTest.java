@@ -23,7 +23,7 @@ class DemoControllerTest {
     assertAll(
         () -> assertNotNull(response),
         () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-        () -> assertEquals("Hello, World!", response.getBody())
+        () -> assertEquals("Hello, Skillnest!", response.getBody())
     );
   }
 
